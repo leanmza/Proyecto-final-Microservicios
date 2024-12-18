@@ -6,6 +6,7 @@ import com.todoCodeMicroservicios.sales_service.model.Sale;
 import com.todoCodeMicroservicios.sales_service.repository.ICartAPI;
 import com.todoCodeMicroservicios.sales_service.repository.IProductAPI;
 import com.todoCodeMicroservicios.sales_service.repository.ISaleRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +57,7 @@ public class SaleService implements ISaleService {
     }
 
     @Override
+    @CircuitBreaker(name = "shoppingCart-service", fallbackMethod = "fallbackGetSaleAndCart")
     public SaleDTO getSaleAndCart(Long idSale) {
 
         Sale sale = this.findSale(idSale);
@@ -77,5 +79,9 @@ public class SaleService implements ISaleService {
             productDTO.setPrice(productDTOTemp.getPrice());
         }
         return saleDTO;
+    }
+    
+    public SaleDTO fallbackGetSaleAndCart(Throwable throwable){
+        return new SaleDTO(99999999L, LocalDate.of(1900,1,1), null);
     }
 }

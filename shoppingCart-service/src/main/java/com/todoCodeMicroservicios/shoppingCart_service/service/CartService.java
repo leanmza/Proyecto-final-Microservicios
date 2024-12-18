@@ -5,6 +5,8 @@ import com.todoCodeMicroservicios.shoppingCart_service.dto.ProductDTO;
 import com.todoCodeMicroservicios.shoppingCart_service.model.Cart;
 import com.todoCodeMicroservicios.shoppingCart_service.repository.ICartRepository;
 import com.todoCodeMicroservicios.shoppingCart_service.repository.IProductAPI;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,6 +68,8 @@ public class CartService implements ICartService {
     }
 
     @Override
+    @CircuitBreaker(name = "products-service", fallbackMethod = "fallbackGetCartAndProducts")
+    @Retry(name = "products-service")
     public CartDTO getCartAndProducts(Long idCart) {
         CartDTO cartDTO = new CartDTO();
         Cart cart = cartRepo.findById(idCart).orElse(null);
@@ -81,4 +85,10 @@ public class CartService implements ICartService {
 
         return cartDTO;
     }
+
+    public CartDTO fallbackGetCartAndProducts(Throwable throwable) {
+        return new CartDTO(9999999L, null, 999999.99);
+    }
+
+
 }

@@ -3,6 +3,7 @@ package com.todoCodeMicroservicios.products_service.controller;
 import com.todoCodeMicroservicios.products_service.model.Product;
 import com.todoCodeMicroservicios.products_service.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,9 @@ public class ProductController {
 
     @Autowired
     private IProductService productService;
+
+    @Value("${server.port}")
+    private int serverPort;
 
     @GetMapping("/get")
     public List<Product> getProducts(){
@@ -33,6 +37,7 @@ public class ProductController {
 
     @GetMapping("/find/{id_product}")
     public Product findProduct(@PathVariable Long id_product){
+        System.out.println("-------Puerto-------- " + serverPort);
         return  productService.findProduct(id_product);
     }
 

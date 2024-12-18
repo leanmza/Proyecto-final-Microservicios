@@ -80,7 +80,7 @@ public class SaleService implements ISaleService {
         }
         return saleDTO;
     }
-    
+
     public SaleDTO fallbackGetSaleAndCart(Throwable throwable){
         return new SaleDTO(99999999L, LocalDate.of(1900,1,1), null);
     }

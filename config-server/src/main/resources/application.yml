@@ -6,9 +6,10 @@ spring:
     name: config-server
 
   cloud:
-    confing:
-      git:
-        uri: https://github.com/leanmza/Proyecto-final-Microservicios.git
-        searchPaths: config-data
-        username: ${GIT_USER}
-        password: ${GIT_PASSWORD}
+    config:
+      server:
+        git:
+          uri: https://github.com/leanmza/Proyecto-final-Microservicios.git
+          searchPaths: config-data
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}

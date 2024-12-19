@@ -5,30 +5,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.0</version>
+		<version>3.1.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.todoCodeMicroservicios</groupId>
+	<groupId>com.todocodeacademy.com</groupId>
 	<artifactId>config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>config-server</name>
 	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2024.0.0</spring-cloud.version>
+		<spring-cloud.version>2022.0.4</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>

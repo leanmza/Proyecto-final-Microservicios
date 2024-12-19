@@ -1,4 +1,4 @@
-package com.todoCodeMicroservicios.config_server;
+package com.todocodeacademy.com.configserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

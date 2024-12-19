@@ -9,7 +9,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/leanmza/Proyecto-final-Microservicios.git
+          uri: https://github.com/leanmza/proyecto-final-microservicios.git
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
+

@@ -1,9 +1,9 @@
+server:
+  port: 8083
+
 spring:
   application:
     name: shoppingCart-service
-
-server:
-  port: 8083
 
 eureka:
   client:

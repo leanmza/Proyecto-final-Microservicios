@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.todoCodeMicroservicios</groupId>
 	<artifactId>shoppingCart-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>shoppingCart-service</name>
 	<description>Proyecto final curso microservicios</description>
 	<url/>
